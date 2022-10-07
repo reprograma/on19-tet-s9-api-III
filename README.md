@@ -4,7 +4,7 @@
 
 # Tema da Aula
 
-Turma Online 19 - Todas em Tech | Back-end | Semana 9 | 2022 | Professora X
+Turma Online 19 - Todas em Tech | Back-end | Semana 9 | 2022 | Professora Manuelly Suzik
 
 ### Instruções
 
