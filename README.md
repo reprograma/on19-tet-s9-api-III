@@ -4,79 +4,76 @@
 
 # Tema da Aula
 
-Turma Online 19 - Todas em Tech  | Back-end | Semana 9 | 2022 | Professora X
+Turma Online 19 - Todas em Tech | Back-end | Semana 9 | 2022 | Professora X
 
 ### Instruções
+
 Antes de começar, vamos organizar nosso setup.
-* Fork esse repositório 
-* Clone o fork na sua máquina (Para isso basta abrir o seu terminal e digitar `git clone url-do-seu-repositorio-forkado`)
-* Entre na pasta do seu repositório (Para isso basta abrir o seu terminal e digitar `cd nome-do-seu-repositorio-forkado`)
-* [Add outras intrucoes caso necessario]
+
+- Fork esse repositório
+- Clone o fork na sua máquina (Para isso basta abrir o seu terminal e digitar `git clone url-do-seu-repositorio-forkado`)
+- Entre na pasta do seu repositório (Para isso basta abrir o seu terminal e digitar `cd nome-do-seu-repositorio-forkado`)
+- [Add outras intrucoes caso necessario]
 
 ### Resumo
+
 O que veremos na aula de hoje?
-* [Tema1](#tema1)
-* [Tema2](#tema2)
-* [Tema3](#tema3)
+
+- [Método PUT](#PUT)
+- [Método PATCH](#PATCH)
+- [Método DELETE](#DELETE)
 
 ## Conteúdo
-### Tema1 
-1. [Tópico 1](#topico1)
-2. [Tópico 2](#topico2)
-### Tema2 
-1. [Tópico 3](#topico3)
-   * [Subtópico 1](#subtopico1)
-   * [Subtópico 2](#subtopico2)
-   
-### Tema3
-1. [Tópico 4](#topico4)
 
-### Tema1 
+### PUT
 
-#### Topico1
+O método PUT deve ser utilizado quando estamos falando sobre mandar em uma requisição de update, se sua entidade estará sendo atualizada integralmente. Ás vezes é usado até para criar um novo recurso.
+Por exemplo:
+Se eu quero atualizar os dados de um usuário no sistema, logo minha chamada PUT deve ir com TODOS os dados necessários, mesmo que eu não vá alterar todos eles:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci. Donec erat mauris, laoreet in tortor vel, eleifend suscipit nibh. Mauris pharetra dui quis turpis rutrum blandit. Nunc tempor libero tortor, ac commodo erat porttitor ut. Donec vitae orci arcu. Nunc felis mi, maximus a turpis a, mollis pulvinar enim. Vivamus aliquam ante dui, a blandit massa rutrum et. Etiam hendrerit gravida ultrices. Nunc ante massa, dictum eget justo eget, feugiat tincidunt metus.
+```javascript
+  {
+    "nome":"João Braga Santos",
+    "idade": 27,
+    "data_nascimento": "21/08/1990",
+    "escolaridade":"superior incompleto"
+  }
+```
 
- #### Topico2
-  - Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  - Donec erat mauris, laoreet in tortor vel
-  - Nunc ante massa, dictum eget justo eget, feugiat tincidunt.
+Usando esse exemplo de cima, quando eu estou usando o método PUT, mesmo que eu mude o valor de apenas um dos itens do usuário ao enviar, preciso enviar a entidade Usuário inteira.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci. Donec erat mauris, laoreet in tortor vel, eleifend suscipit nibh. Mauris pharetra dui quis turpis rutrum blandit.
+### PATCH
 
-### Tema2
-#### Topico3
-* [Subtópico 1](#subtopico1)
-* [Subtópico 2](#subtopico2)
-<br>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci. Donec erat mauris, laoreet in tortor vel.
-<br>
+Já o método PATCH, assim como o PUT , também é usado para atualizar dados. Mas diferentemente do método PUT ao enviar os dados para a API eu não preciso enviar toda a entidade, apenas o item que quero que seja alterado
 
-##### Subtopico1
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci. Donec erat mauris, laoreet in tortor vel.
+Usando o mesmo exemplo do usuário:
 
-##### Subtopico2
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci. Donec erat mauris, laoreet in tortor vel.
+```javascript
+  {
+    "escolaridade":"superior completo"
+  }
+```
 
-### Tema3
-#### Topico4
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci. Donec erat mauris, laoreet in tortor vel, eleifend suscipit nibh. Mauris pharetra dui quis turpis rutrum blandit. Nunc tempor libero tortor, ac commodo erat porttitor ut. Donec vitae orci arcu. Nunc felis mi, maximus a turpis a, mollis pulvinar enim. Vivamus aliquam ante dui, a blandit massa rutrum et. Etiam hendrerit gravida ultrices.
+Normalmente para garantir que estarei alterando a escolaridade do usuário `João Braga Santos` preciso informar um identificador único desse usuário no meu endpoint.
 
-***
-### Exercícios 
-* [Exercicio para sala](/exercicios/para-sala/)
-* [Exercicio para casa](/exercicios/para-casa/)
+### DELETE
 
-### Material da aula 
+Esse método é reservado para apagar dados. Normalmente não se envia nada no `body` da requisição quando se usa esse método. Então para identificar exatamente o dado que você quer que seja apagado é indicado usar um indentificador único no endpoint.
+
+### Exercícios
+
+- [Exercicio para sala](/exercicios/para-sala/)
+- [Exercicio para casa](/exercicios/para-casa/)
+
+### Material da aula
 
 ### Links Úteis
-- [Lorem Ipsum](https://www.lipsum.com/feed/html)
-- [Lorem Ipsum](https://www.lipsum.com/feed/html)
-- [Lorem Ipsum](https://www.lipsum.com/feed/html)
-- [Lorem Ipsum](https://www.lipsum.com/feed/html)
 
+- [PUT VS PATCH](https://cursos.alura.com.br/forum/topico-diferenca-entre-put-e-patch-44669)
+- [Método DELETE](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods/DELETE)
+- [Método PATCH](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods/PATCH)
+- [Método PUT](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/Methods/PUT)
 
 <p align="center">
 Desenvolvido com :purple_heart:  
 </p>
-

@@ -1,0 +1,112 @@
+[
+  {
+    "id": 9,
+    "name": "Troy Becker",
+    "address": {
+      "zipcode": "47541",
+      "street": "Cija Circle",
+      "city": "Jihicomu"
+    },
+    "profession": "IT Systems Analyst",
+    "birth_date": "1997-02-02T22:12:54.147Z"
+  },
+  {
+    "id": 16,
+    "name": "Floyd Webb",
+    "address": {
+      "zipcode": "52584",
+      "street": "Hicpuh Plaza",
+      "city": "Vetouli"
+    },
+    "profession": "Restaurant Manager",
+    "birth_date": "1966-09-29T19:28:52.272Z"
+  },
+  {
+    "id": 3,
+    "name": "Willie Adkins",
+    "address": {
+      "zipcode": "39666",
+      "street": "Lehu Loop",
+      "city": "Ilenalit"
+    },
+    "profession": "Lab Services Director",
+    "birth_date": "1990-08-16T06:35:37.605Z"
+  },
+  {
+    "id": 1,
+    "name": "Jay Hunt",
+    "address": {
+      "zipcode": "56463",
+      "street": "Lali Road",
+      "city": "Venatwos"
+    },
+    "profession": "Stress Reduction Specialist",
+    "birth_date": "1996-02-06T13:07:41.577Z"
+  },
+  {
+    "id": 8,
+    "name": "Bryan Curry",
+    "address": {
+      "zipcode": "52481",
+      "street": "Giwip Highway",
+      "city": "Uvikuce"
+    },
+    "profession": "Environmental Attorney",
+    "birth_date": "1998-02-10T19:31:16.859Z"
+  },
+  {
+    "id": 18,
+    "name": "Jacob Ingram",
+    "address": {
+      "zipcode": "84713",
+      "street": "Doru Court",
+      "city": "Lectiwoba"
+    },
+    "profession": "Stress Reduction Specialist",
+    "birth_date": "1965-06-01T23:54:30.208Z"
+  },
+  {
+    "id": 18,
+    "name": "Herman Bowman",
+    "address": {
+      "zipcode": "54612",
+      "street": "Rutse Path",
+      "city": "Zogimso"
+    },
+    "profession": "Producer",
+    "birth_date": "1999-09-14T02:53:07.785Z"
+  },
+  {
+    "id": 17,
+    "name": "Joseph Hill",
+    "address": {
+      "zipcode": "38640",
+      "street": "Upizev Square",
+      "city": "Awaupwuz"
+    },
+    "profession": "Occupational Therapist",
+    "birth_date": "1983-11-06T19:20:35.832Z"
+  },
+  {
+    "id": 12,
+    "name": "Teresa Davis",
+    "address": {
+      "zipcode": "99851",
+      "street": "Tezsot Circle",
+      "city": "Ugfemta"
+    },
+    "profession": "Managed Care Director",
+    "birth_date": "1988-03-07T00:38:40.484Z"
+  },
+  {
+    "id": 6,
+    "name": "Troy Price",
+    "address": {
+      "zipcode": "21046",
+      "street": "Cebap Pike",
+      "city": "Vodbeanu"
+    },
+    "profession": "Purchasing Agent",
+    "birth_date": "2004-04-18T13:33:44.942Z"
+  }
+]
