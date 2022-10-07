@@ -2,9 +2,9 @@
 
 ## Nome do Exercicio
 
-- Explicação do exercício: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci.
-Donec erat mauris, laoreet in tortor vel, eleifend suscipit nibh. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Aliquam leo nibh, tempus sed rhoncus et, ultrices vitae orci. Donec erat mauris, laoreet in tortor vel, eleifend suscipit nibh. 
+- [ ] criaremos uma rota utilizando o método PUT que atualiza todos os dados da lista de tarefas e caso não encontre, cria o item.
+- [ ] vamos atualizar um registro na lista de tarefas utilizando o método PATCH
+- [ ] apagaremos uma tarefa da lista utilizando o método DELETE. 
 ---
 
 Terminou o exercício? Dá uma olhada nessa checklist e confere se tá tudo certinho, combinado?!
