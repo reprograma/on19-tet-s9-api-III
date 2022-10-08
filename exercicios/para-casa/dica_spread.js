@@ -23,7 +23,7 @@ const enderecoNovo = {
 
 
 const resultadoApenasUmRegistro = {
-    ...apenasUmRegistro,
+    ...apenasUmRegistroEncontrado,
     ...enderecoNovo
 }
 
