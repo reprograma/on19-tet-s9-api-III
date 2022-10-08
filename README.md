@@ -27,9 +27,9 @@ O que veremos na aula de hoje?
 
 ### PUT
 
-O método PUT deve ser utilizado quando estamos falando sobre mandar em uma requisição de update, se sua entidade estará sendo atualizada integralmente. Ás vezes é usado até para criar um novo recurso.
+O método PUT deve ser utilizado quando precisamos atualizar algum recurso através da nossa api, nesse caso, sua entidade precisará ser enviada integralmente e as vezes é usado até para criar um novo recurso.
 Por exemplo:
-Se eu quero atualizar os dados de um usuário no sistema, logo minha chamada PUT deve ir com TODOS os dados necessários, mesmo que eu não vá alterar todos eles:
+Se eu quero atualizar os dados de um usuário no sistema, logo minha chamada PUT deve ir com TODOS os dados necessários, mesmo que eu não vá atualizar todos eles:
 
 ```javascript
   {
@@ -44,7 +44,7 @@ Usando esse exemplo de cima, quando eu estou usando o método PUT, mesmo que eu 
 
 ### PATCH
 
-Já o método PATCH, assim como o PUT , também é usado para atualizar dados. Mas diferentemente do método PUT ao enviar os dados para a API eu não preciso enviar toda a entidade, apenas o item que quero que seja alterado
+Já o método PATCH, assim como o PUT , também é usado para atualizar dados. Mas diferente do método PUT ao enviar os dados para a API eu não preciso enviar toda a entidade, apenas o item que quero que seja alterado
 
 Usando o mesmo exemplo do usuário:
 
