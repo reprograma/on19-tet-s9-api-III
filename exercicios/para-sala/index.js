@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const listaDeTarefas = require("./model/todo-list.json")
-const port = 3000
+const port = 3003
 
 app.use(express.json())
 
@@ -32,6 +32,7 @@ app.put("/tarefas/:id",(req, res)=>{
     
 })
 
+
 //TODO: [X] vamos atualizar um registro na lista de tarefas utilizando o método PATCH - DONE
 
 app.patch("/tarefas/:id",(req, res)=>{
@@ -52,6 +53,7 @@ app.patch("/tarefas/:id",(req, res)=>{
 })
 
 //TODO: [X] apagaremos uma tarefa da lista utilizando o método DELETE. - DONE
+
 app.delete("/tarefas/:id",(req, res)=>{
     const IDtarefa = req.params.id
 
@@ -73,7 +75,22 @@ app.delete("/tarefas/:id",(req, res)=>{
     })
 })
 
+/* 
+Segunda opção que fiz para deletar um item
+app.delete("/tarefas/:id",(req,res)=>{
+    const IDTarefa = req.params.id
+    
+    const posicaoTarefa = listaDeTarefas.findIndex(tarefa => tarefa.id == IDTarefa);
+    if (posicaoTarefa > -1){
+        listaDeTarefas.splice(posicaoTarefa, 1);
+        return res.status(200).json(listaDeTarefas)
+        }
+    return res.status(404).json({
+        message:"Tarefa não encontrada"
+    })
+})
+*/
 
 app.listen(port,()=>{
-    console.log(`Api está rodando na porta ${port}`)
+    console.log(`Api esta rodando na porta ${port}`)
 })
