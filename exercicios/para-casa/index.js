@@ -41,7 +41,7 @@ app.patch("/usuarios/:id", (req, res) => {
 
 })
 
-//- [ ] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.
+//- [DONE] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.
 
 app.delete("/usuarios/:id", (req, res) => {
     const idUsuario = req.params.id
