@@ -23,6 +23,11 @@ app.put("/tarefas/:id",(req, res)=>{
     const temTarefa = listaDeTarefas.find(tarefa => tarefa.id == IDtarefa)
 
     if(temTarefa){
+        listaDeTarefas.map((tarefa, index)=>{
+            if(tarefa.id == IDtarefa){
+                return listaDeTarefas[index] = tarefaAtualizada
+            }
+        })
         return res.status(200).json(tarefaAtualizada)
     }
 
@@ -46,6 +51,12 @@ app.patch("/tarefas/:id",(req, res)=>{
             ...existeTarefa,
             ...novosCampos
         }
+            // Garante que a lista de tarefas vai ser atualizada com o novo registro
+            listaDeTarefas.map((tarefa, index)=>{
+                if(tarefa.id == IDtarefa){
+                    return listaDeTarefas[index] = tarefaAtualizada
+                }
+            })
 
         return res.status(200).json(tarefaAtualizada)
     }

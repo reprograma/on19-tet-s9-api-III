@@ -2,32 +2,34 @@
 
 
 const apenasUmRegistroEncontrado = {
-    id: 1,
-    name: "Bryan Curry",
-    address: {
-      zipcode: "52481",
-      street: "Giwip Highway",
-      city: "Uvikuce"
-    },
-    profession: "Environmental Attorney",
-    birth_date: "1998-02-10T19:31:16.859Z"
-  }
-
-const enderecoNovo = {
-    address: {
-      zipcode: "1111",
-      street: "2222",
-      city: "3333"
-    }
+  id: 1,
+  name: "Bryan Curry",
+  address: {
+    zipcode: "52481",
+    street: "Giwip Highway",
+    city: "Uvikuce"
+  },
+  profession: "Environmental Attorney",
+  birth_date: "1998-02-10T19:31:16.859Z"
 }
 
+const enderecoNovo = {
+  address: {
+    zipcode: "1111",
+    street: "2222",
+    city: "3333"
+  }
+}
 
+// QUANDO SABEMOS A ESTRUTURA:
+
+apenasUmRegistroEncontrado.address = enderecoNovo.address
+
+// QUANDO PODEMOS TER VALORES DIFERENTES E QUEREMOS SOBRESCREVER:
 const resultadoApenasUmRegistro = {
-    ...apenasUmRegistroEncontrado,
-    ...enderecoNovo
+  ...apenasUmRegistroEncontrado,
+  ...enderecoNovo
 }
 
 console.log(resultadoApenasUmRegistro)
-
-
-
+console.log(apenasUmRegistroEncontrado)
