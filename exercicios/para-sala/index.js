@@ -60,8 +60,6 @@ app.delete("/tasks/:id", (req, res) =>{
     })
 })
 
-
-
 app.listen(port, ()=> {
     console.log(`Api is working on the door ${port}`)
 })
