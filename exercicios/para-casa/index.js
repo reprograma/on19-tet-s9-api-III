@@ -1,59 +1,64 @@
 const express = require('express')
 const app = express()
-const acharEndereco = require("./model/usuarios.json")
+const listaUsuarios = require("./model/usuarios.json")
 const port = 3300;
 app.use(express.json())
 
 //- [ ] Uma rota que atualiza todos os dados de cadastro de um usuário e se não for encontrado cria um novo na lista
 app.put("/usuarios/:id", (req, res) => {
-    const atualizarDados = req.params.id;
-    const dadosAtualizados = req.body;
+    const cadastros = req.params.id
+    const dadoAtualizado = req.body
   
-    const temTarefa = acharEndereco.find((tarefa) => tarefa.id == atualizarDados);
-      if (temTarefa) {
-      return res.status(200).json(dadosAtualizados);
+    const localizarUsuario = listaUsuarios.find((usuario) => usuario.id == cadastros)
+      if (localizarUsuario) {
+      return res.status(200).json(dadoAtualizado)
     }
-    acharEndereco.push(dadosAtualizados);
+    listaUsuarios.push(dadoAtualizado)
   
-   return res.status(201).json(dadosAtualizados); // STATUS CODE : ACCEPTED
-  });
+   return res.status(201).json(dadoAtualizado)
+  })
   
 
 //- [ ] Uma rota que atualiza apenas o endereço do usuário
-app.patch("/tarefas/:id", (req, res) => {
-    const endereco = req.params.id
-    const atualizarEndereco = req.body
+app.patch("/usuarios/:id", (req, res) => {
+    const enderecos = req.params.id
+    const novoEndereco = req.body
   
-    const enderecoAtualizado = acharEndereco.find(atualizar => atualizar.id === endereco)
-      if(enderecoAtualizado) {
+    const localizarEndereco = listaUsuarios.find(atualizarEndereco => atualizarEndereco.id == enderecos)
+      if(localizarEndereco) {
           const enderecoalterado = {
-          ...enderecoAtualizado,
-          ...atualizarEndereco
+          ...localizarEndereco,
+          ...novoEndereco
       }
-          return res.status(200).json(enderecoalterado);
+      listaUsuarios.map((atualizarEndereco, index) => {
+        if (atualizarEndereco == enderecos) {
+            return listaUsuarios[index] = enderecoalterado
+        }
+      })
+          return res.status(200).json(enderecoalterado)
   }
       return res.status(404).json({
-          Messagem:"Tarefa não encontrada"
+          Messagem:"Endereço não localizado, por favor confira os dados informados"
   
-      })
+      }) 
   })
 
 //- [ ] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.
 app.delete("/usuarios/:id", (req, res) => {
-    const deletaID = req.params.id
+    const deletaCadastro = req.params.id
 
-    const IDinformado = acharEndereco.find((tarefa) => tarefa.id == deletaID)
+    const localizaUsuario = listaUsuarios.find((usuario) => usuario.id == deletaCadastro)
 
-    if(IDinformado){
-        acharEndereco.map((tarefa, index) => {
-            if(tarefa.id == deletaID){
-             return acharEndereco.splice(index, 1)
+    if(localizaUsuario){
+        listaUsuarios.map((usuario, index) => {
+            if(usuario.id == deletaCadastro){
+             return listaUsuarios.splice(index, 1)
             }
         })
-        return res.status(200).json(acharEndereco)
+        return res.status(200).json(listaUsuarios)
     }
     return res.status(404).json({
-        message: "Tarefa não encontrada"
+        message: "O usuario não pode ser localizado, por favor confira os dados informados!"
     })
 })
 
