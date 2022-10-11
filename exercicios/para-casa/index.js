@@ -27,7 +27,7 @@ app.put("/data/:id", (req, res) =>{
     return res.status(201).json(updatedUser) // STATUS CODE 201 = CREATED
 })
 
-// [x] Uma rota que atualiza apenas o endereço do usuário (no da sala fizemos com objeto, nesse teremos que fazer uma variavel) 
+// [x] Uma rota que atualiza apenas o endereço do usuário
 //PATCH
 app.patch("/data/:id", (req,res) =>{
     const idUser = req.params.id

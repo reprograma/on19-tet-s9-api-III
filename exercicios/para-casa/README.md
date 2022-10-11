@@ -4,7 +4,7 @@
 
 - Utilizando os conhecimentos compartilhados na aula crie uma API restful com ExpressJS que entregue as seguintes rotas:
 - [x] Uma rota que atualiza todos os dados de cadastro de um usuário e se não for encontrado cria um novo na lista
-- [ ] Uma rota que atualiza apenas o endereço do usuário (no da sala fizemos com objeto, nesse teremos que fazer uma variavel) 
+- [x] Uma rota que atualiza apenas o endereço do usuário 
 - [x] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.
 - [x] Usar corretamente os retornos com os respectivos status codes!
 
