@@ -21,13 +21,18 @@ const enderecoNovo = {
     }
 }
 
+// QUANDO SABEMOS A ESTRUTURA:
 
+apenasUmRegistroEncontrado.address = enderecoNovo.address
+
+// QUANDO PODEMOS TER VALORES DIFERENTES E QUEREMOS SOBRESCREVER:
 const resultadoApenasUmRegistro = {
     ...apenasUmRegistroEncontrado,
     ...enderecoNovo
 }
 
 console.log(resultadoApenasUmRegistro)
+console.log(apenasUmRegistroEncontrado)
 
 
 
