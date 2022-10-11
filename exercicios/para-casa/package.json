@@ -1,7 +1,7 @@
 {
-  "name": "exercicio-para-sala",
+  "name": "exercicio-para-casa",
   "version": "1.0.0",
-  "description": "Exercicios feitos na aula semana 9",
+  "description": "Exercicios feitos em casa atraves do conteudo repassado em aula",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
