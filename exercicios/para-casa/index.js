@@ -1,42 +1,48 @@
 const express = require('express')
 const app = express()
-const ListaDeUsuarios = require("./model/usuarios.json")
+const listaUsuarios = require("./model/usuarios.json")
 app.use(express.json())
 const port = 3000
 
 app.put("/usuarios/:id", (req, res) => {
     const Idcadastros = req.params.id
-    const UsuariosAtualizado = req.body
+    const usuarioAtualizado = req.body
 
-    const TemUsuario = ListaDeUsuarios.find(usuarios => usuarios.id == Idcadastros)
+    const temUsuario = listaUsuarios.find(usuarios => usuarios.id == Idcadastros)
 
-    if (TemUsuario) {
-        return res.status(200).json(UsuariosAtualizado)
+    if (temUsuario) {
+        return res.status(200).json(usuarioAtualizado)
     }
 
-    ListaDeUsuarios.push(UsuariosAtualizado)
+    listaUsuarios.push(usuarioAtualizado)
 
-    return res.status(201).json(UsuariosAtualizado)
+    return res.status(201).json(usuarioAtualizado)
 
 })
 
 
 app.patch("/usuarios/:id", (req, res) => {
     const Idcadastros = req.params.id
-    const trazcampos = req.body
+    const camposAtualizados = req.body
 
-    const existeEnderenco = ListaDeUsuarios.find(usuarios => usuarios.id == Idcadastros)
+    const existeEnderenco = listaUsuarios.find(usuarios => usuarios.id == Idcadastros)
 
     if (existeEnderenco) {
-        const EnderecoAtualizado = {
+        const enderecoAtualizado = {
             ...existeEnderenco,
-            ...trazcampos
+            ...camposAtualizados
         }
-        return res.status(200).json(EnderecoAtualizado)
+        listaUsuarios.map((usuarios, index)=>{
+            if(usuarios.id == Idcadastros){
+                return listaUsuarios[index] = enderecoAtualizado
+            }
+        })
+
+        return res.status(200).json(enderecoAtualizado)
     }
 
     return res.status(404).json({
-        messagem: "Usuario não Encontrado, AJUSTA AI!!!!"
+        messagem: "Usuario não Encontrado, por favor verifique."
     })
 })
 
@@ -46,7 +52,7 @@ app.delete("/usuarios/:id", (req, res) => {
     const Idcadastros = req.params.id
     const deletecampos = req.body
 
-    const newlist = ListaDeUsuarios.map((usuarios) => {
+    const newlist = listaUsuarios.map((usuarios) => {
         if (usuarios.id == Idcadastros) {
             return delete { // aqui vai retornar um true, que apagou o id e seus parametros.
                 ...usuarios,
@@ -64,17 +70,17 @@ app.delete("/usuarios/:id", (req, res) => {
 
 app.delete("/usuarios/:id", (req, res) => {
     const Idcadastros = req.params.id
-    const existeUsuario = ListaDeUsuarios.find((usuarios) => usuarios.id == Idcadastros)
+    const existeUsuario = listaUsuarios.find((usuarios) => usuarios.id == Idcadastros)
     if (existeUsuario) {
-        ListaDeUsuarios.map((usuarios, index) => {
+        listaUsuarios.map((usuarios, index) => {
             if (usuarios.id == Idcadastros) {
-                return ListaDeUsuarios.splice(index, 1)
+                return listaUsuarios.splice(index, 1)
             }
         })
-        return res.status(200).json(ListaDeUsuarios)
+        return res.status(200).json(listaUsuarios)
     }
     return res.status(404).json({
-        message: "Usuario não encontrado"
+        message: "Usuario não Encontrado, por favor verifique."
     })
 
 })
