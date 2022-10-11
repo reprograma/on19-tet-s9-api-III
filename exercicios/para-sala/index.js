@@ -1,90 +1,65 @@
-const express = require('express')
+const express = require("express")
 const app = express()
-const listaDeTarefas = require("./model/todo-list.json")
+const tasksList = require("./model/todo-list.json")
 const port = 3000
 
 app.use(express.json())
 
-/**
- * STATUS CODES:
- * 200 - OK
- * 201 - CREATED
- * 202 - ACCEPTED
- * 204 - NO CONTENT ( nao aceita corpo da requisição)
- * 
- * 404 - NOT FOUND
- */
+//TO-DO: [x] criaremos uma rota utilizando o método PUT que atualiza todos os dados da lista de tarefas e caso não encontre, cria o item. 
+app.put("/tasks/:id", (req, res)=>{
+    const idTasks = req.params.id
+    const updatedTask = req.body
 
-//TODO: [X] criaremos uma rota utilizando o método PUT que atualiza um registro da lista de tarefas e caso não encontre, cria o item. - DONE
-app.put("/tarefas/:id",(req, res)=>{
-    const IDtarefa = req.params.id
-    const tarefaAtualizada = req.body
+    const thereIsTheTask = tasksList.find(task => task.id == idTasks)
 
-    const temTarefa = listaDeTarefas.find(tarefa => tarefa.id == IDtarefa)
-
-    if(temTarefa){
-        listaDeTarefas.map((tarefa, index)=>{
-            if(tarefa.id == IDtarefa){
-                return listaDeTarefas[index] = tarefaAtualizada
-            }
-        })
-        return res.status(200).json(tarefaAtualizada)
+    if(thereIsTheTask){
+        return res.status(200).json(updatedTask)
     }
 
-    listaDeTarefas.push(tarefaAtualizada)
+    tasksList.push(updatedTask)
 
-    return res.status(201).json(tarefaAtualizada) 
-    
+    return res.status(201).json(updatedTask) //STATUS CODE: ACCEPTED
 })
 
-//TODO: [X] vamos atualizar um registro na lista de tarefas utilizando o método PATCH - DONE
+//TO-DO: [x] vamos atualizar um registro na lista de tarefas utilizando o método PATCH
+app.patch("/tasks/:id",(req, res)=>{
+    const idTasks = req.params.id
+    const newFields = req.body
 
-app.patch("/tarefas/:id",(req, res)=>{
-    const IDtarefa = req.params.id
-    const novosCampos = req.body
+    const thereIsTheTask = tasksList.find(task => task.id == idTasks)
 
-    const existeTarefa = listaDeTarefas.find(tarefa => tarefa.id == IDtarefa)
-
-    if(existeTarefa) {
-        const tarefaAtualizada = {
-            ...existeTarefa,
-            ...novosCampos
+    if(thereIsTheTask){
+        const updatedTask = {
+            ...thereIsTheTask,
+            ...newFields
         }
-        // Garante que a lista de tarefas vai ser atualizada com o novo registro
-        listaDeTarefas.map((tarefa, index)=>{
-            if(tarefa.id == IDtarefa){
-                return listaDeTarefas[index] = tarefaAtualizada
-            }
-        })
-
-        return res.status(200).json(tarefaAtualizada)
+        return res.status(200).json(updatedTask)
     }
-    return res.status(404).json({message:"tarefa não foi encontrada"})
-})
-
-//TODO: [X] apagaremos uma tarefa da lista utilizando o método DELETE. - DONE
-app.delete("/tarefas/:id",(req, res)=>{
-    const IDtarefa = req.params.id
-
-    const existeTarefa = listaDeTarefas.find((tarefa) => tarefa.id == IDtarefa)
-    //False = 0, null , [] , {} , undefined , false
-    //True = {...}, 1 , True
-    if(existeTarefa){
-        listaDeTarefas.map((tarefa, index)=>{
-            if(tarefa.id == IDtarefa){
-                return listaDeTarefas.splice(index,1)
-            }
-        })
-
-        return res.status(200).json(listaDeTarefas)
-    }
-
     return res.status(404).json({
-        message:"Tarefa não foi encontrada"
+        message:"Can't find the task"
     })
 })
 
+//TO-DO: [x] apagaremos uma tarefa da lista utilizando o método DELETE. 
+app.delete("/tasks/:id", (req, res) =>{
+    const idTasks = req.params.id
 
-app.listen(port,()=>{
-    console.log(`Api está rodando na porta ${port}`)
+    const thereIsTheTask = tasksList.find((task) => task.id == idTasks)
+
+     if (thereIsTheTask){
+
+        tasksList.map((task, index) =>{
+            if(task.id == idTasks) {
+                return tasksList.splice(index,1)
+            }
+            })
+        return res.status(200).json(tasksList)
+    }
+    return res.status(404).json({
+        message:"Can't find the task"
+    })
+})
+
+app.listen(port, ()=> {
+    console.log(`Api is working on the door ${port}`)
 })

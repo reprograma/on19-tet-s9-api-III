@@ -3,10 +3,10 @@
 ## Nome do Exercicio
 
 - Utilizando os conhecimentos compartilhados na aula crie uma API restful com ExpressJS que entregue as seguintes rotas:
-- [ ] Uma rota que atualiza todos os dados de cadastro de um usuário e se não for encontrado cria um novo na lista
-- [ ] Uma rota que atualiza apenas o endereço do usuário
-- [ ] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.
-- [ ] Usar corretamente os retornos com os respectivos status codes!
+- [x] Uma rota que atualiza todos os dados de cadastro de um usuário e se não for encontrado cria um novo na lista
+- [x] Uma rota que atualiza apenas o endereço do usuário 
+- [x] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.
+- [x] Usar corretamente os retornos com os respectivos status codes!
 
 ---
 
