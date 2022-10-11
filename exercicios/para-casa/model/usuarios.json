@@ -56,17 +56,6 @@
   },
   {
     "id": 18,
-    "name": "Jacob Ingram",
-    "address": {
-      "zipcode": "84713",
-      "street": "Doru Court",
-      "city": "Lectiwoba"
-    },
-    "profession": "Stress Reduction Specialist",
-    "birth_date": "1965-06-01T23:54:30.208Z"
-  },
-  {
-    "id": 18,
     "name": "Herman Bowman",
     "address": {
       "zipcode": "54612",
