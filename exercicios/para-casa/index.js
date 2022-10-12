@@ -11,9 +11,14 @@ app.put("/usuarios/:id", (req, res) => {
     const temUsuario = listaUsuarios.find(usuarios => usuarios.id == Idcadastros)
 
     if (temUsuario) {
+        listaUsuarios.map((usuarios, index) => {
+            if (usuarios.id == Idcadastros) {
+                return listaUsuarios[index] = usuarioAtualizado
+            }
+        })
+
         return res.status(200).json(usuarioAtualizado)
     }
-
     listaUsuarios.push(usuarioAtualizado)
 
     return res.status(201).json(usuarioAtualizado)
@@ -32,8 +37,8 @@ app.patch("/usuarios/:id", (req, res) => {
             ...existeEnderenco,
             ...camposAtualizados
         }
-        listaUsuarios.map((usuarios, index)=>{
-            if(usuarios.id == Idcadastros){
+        listaUsuarios.map((usuarios, index) => {
+            if (usuarios.id == Idcadastros) {
                 return listaUsuarios[index] = enderecoAtualizado
             }
         })
@@ -45,27 +50,6 @@ app.patch("/usuarios/:id", (req, res) => {
         messagem: "Usuario não Encontrado, por favor verifique."
     })
 })
-
-/*  MEU PRIMEIRO CODIGO DELETE VERSÃO 1.0
-
-app.delete("/usuarios/:id", (req, res) => {
-    const Idcadastros = req.params.id
-    const deletecampos = req.body
-
-    const newlist = listaUsuarios.map((usuarios) => {
-        if (usuarios.id == Idcadastros) {
-            return delete { // aqui vai retornar um true, que apagou o id e seus parametros.
-                ...usuarios,
-                ...deletecampos
-            }
-        }
-        return usuarios
-    })
-    res.status(200).json(newlist)
-
-})
-*/
-
 // VERSÃO 2.0 UTILIZANDO find, splice 
 
 app.delete("/usuarios/:id", (req, res) => {
