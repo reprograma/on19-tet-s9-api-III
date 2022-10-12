@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const listaDeTarefas = require("./model/todo-list.json")
-const port = 3000
+const port = 3333
 
 app.use(express.json())
 
