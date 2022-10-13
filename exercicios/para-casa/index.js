@@ -44,9 +44,9 @@ app.patch("/usuarios/:id", (req, res) => {
     })
 })
 // [X] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários - DONE
-app.delete("/usuarios/:id", (req, res) => {
+app.delete("/usuarios/:id", (req, res) => {     
     const idASerExcluido = req.params.id
-    const usuarioEncontrado = userList.find((usuario) => usuario.id == idASerExcluido)
+    const usuarioEncontrado = listaJson.find((usuario) => usuario.id == idASerExcluido)
 
     if (usuarioEncontrado) {
         listaJson.map((usuario, indice) => {
