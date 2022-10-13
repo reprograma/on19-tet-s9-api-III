@@ -1,0 +1,35 @@
+//execute esse código com: node dica_spread.js
+
+
+const apenasUmRegistroEncontrado = {
+    id: 1,
+    name: "Nomedousuario",
+    address: {
+      zipcode: "98632",
+      street: "Rota 989",
+      city: "Cidade X"
+    },
+    profession: "testetstetsetst",
+    birth_date: "1989-01-10T29:31:16.859Z"
+  }
+
+const enderecoNovo = {
+    address: {
+      zipcode: "2222",
+      street: "3333",
+      city: "5555"
+    }
+}
+
+// QUANDO SABEMOS A ESTRUTURA:
+
+apenasUmRegistroEncontrado.address = enderecoNovo.address
+
+// QUANDO PODEMOS TER VALORES DIFERENTES E QUEREMOS SOBRESCREVER:
+const resultadoApenasUmRegistro = {
+    ...apenasUmRegistroEncontrado,
+    ...enderecoNovo
+}
+
+console.log(resultadoApenasUmRegistro)
+console.log(apenasUmRegistroEncontrado)
