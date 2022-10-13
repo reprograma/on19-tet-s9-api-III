@@ -48,7 +48,26 @@ app.patch('/usuarios/:id', (req, res) => {
   }
   return res.status(404).json({
     message:
-      'O usuário não foi encontrado. Por favor, verifique e digite um ID válido!'
+      "O usuário não foi encontrado. Por favor, verifique e digite um ID válido!"
+  })
+})
+
+//[X] TODO: Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários -- DONE (Método DELETE)
+app.delete('/usuarios/:id', (req, res) => {
+  const idDoUsuario = req.params.id
+  const usuarioExistente = listaDeUsuarios.find(
+    usuario => usuario.id == idDoUsuario
+  )
+  if (usuarioExistente) {
+    listaDeUsuarios.map((usuario, index) => {
+      if (usuario.id == idDoUsuario) {
+        return listaDeUsuarios.splice(index, 1)
+      }
+    })
+    return res.status(200).json(listaDeUsuarios)
+  }
+  return res.status(404).json({
+    message: "O usuário não foi encontrado. Por favor, verifique e digite um ID válido!"
   })
 })
 
