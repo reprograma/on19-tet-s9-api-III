@@ -10,16 +10,21 @@ app.use(express.json())
 
 app.put("/usuarios/:id", (req, res) => {
     const idUsuario = req.params.id
-    const cadAtualizado = req.body
+    const cadastroAtualizado = req.body
 
     const usuarioExistente = listaUsuarios.find((usuario) => usuario.id == idUsuario)
 
     if(usuarioExistente){
-        return res.status(200).json(cadAtualizado)
+        listaUsuarios.map((usuario,index)=> {
+            usuario.id == idUsuario 
+                return listaUsuarios[index] = cadastroAtualizado
+            })
+        
+        return res.status(200).json(cadastroAtualizado)
     }
 
-    listaUsuarios.push(cadAtualizado)
-    return res.status(201).json(cadAtualizado) 
+    listaUsuarios.push(cadastroAtualizado)
+    return res.status(201).json(cadastroAtualizado) 
 })
 
 //- [DONE] Uma rota que atualiza apenas o endereço do usuário
@@ -28,13 +33,21 @@ app.patch("/usuarios/:id", (req, res) => {
     const idUsuario = req.params.id
     const enderecoAtualizado = req.body
 
-    const acharIdEndereco = listaUsuarios.find((usuario) => usuario.id == idUsuario)
-    if(acharIdEndereco) {
-       acharIdEndereco.address = enderecoAtualizado
+    const verificarUsuario = listaUsuarios.find((usuario) => usuario.id == idUsuario)
+    if(verificarUsuario) {
+        verificarUsuario.address = enderecoAtualizado
     
-       return res.status(200).json(acharIdEndereco)
-
-    }
+       return res.status(200).json(verificarUsuario)
+       const usuarioAtualizado = {
+        ...verificarUsuario,
+        ...enderecoAtualizado
+       }
+       listaUsuarios.map((usuario, index) => {
+        if(usuario.id == idUsuario){
+            return listaUsuarios[index] = usuarioAtualizado
+        }
+       })
+    }    
     return res.status(404).json({
         mensagem: "Usuário não encontrado"
     })
@@ -45,9 +58,9 @@ app.patch("/usuarios/:id", (req, res) => {
 
 app.delete("/usuarios/:id", (req, res) => {
     const idUsuario = req.params.id
-    const confereUsuario = listaUsuarios.find((usuario) => usuario.id == idUsuario)
+    const usuarioADeletar = listaUsuarios.find((usuario) => usuario.id == idUsuario)
 
-    if(confereUsuario) {
+    if(usuarioADeletar) {
         listaUsuarios.map((usuario, index) => {
             if(usuario.id == idUsuario) {
                 return listaUsuarios.splice(index, 1)
