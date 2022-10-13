@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const listaDeUsuários = require("./model/usuarios.json")
-const port = 3000
+const port = 3333
 
 app.use(express.json())
 
