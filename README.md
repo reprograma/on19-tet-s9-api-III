@@ -1,8 +1,8 @@
 <h1 align="center">
-  <img src="assets/reprograma-fundos-claros.png" alt="logo reprograma" width="500">
+  <img src="assets/kyubey (1).gif" alt="gif Kyubei" width="500">
 </h1>
 
-# Tema da Aula
+# Semana 9 - API III
 
 Turma Online 19 - Todas em Tech | Back-end | Semana 9 | 2022 | Professora Manuelly Suzik
 
