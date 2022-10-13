@@ -1,12 +1,13 @@
 const express = require('express')
 const app = express()
 const listaUsuarios = require("./model/usuarios.json")
-const port = 3030
+const port = 3330
 
 app.use(express.json())
 
 //fazer: 200 - OK; 201 - CREATED; 202 - ACCEPTED; 204 - NO CONTENT; 404 - NOT FOUND.
 
+//1 teste
 app.put("/usuarios/:id",(req, res)=>{
     const IDusuario = req.params.id
     const cadastroAtualizado = req.body
@@ -26,6 +27,7 @@ app.put("/usuarios/:id",(req, res)=>{
 
 })
 
+//2 teste
 app.patch("/usuarios/:id",(req, res)=>{
     const IDusuario = req.params.id
     const atualizarEndereco = req.body
@@ -48,6 +50,7 @@ app.patch("/usuarios/:id",(req, res)=>{
     return res.status(404).json()
 })
 
+//3 teste
 app.delete("/usuarios/:id",(req, res)=>{
     const IDusuario = req.params.id
 
