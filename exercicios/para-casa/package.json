@@ -1,0 +1,17 @@
+{
+  "name": "para-casa",
+  "version": "1.0.0",
+  "description": "- Utilizando os conhecimentos compartilhados na aula crie uma API restful com ExpressJS que entregue as seguintes rotas:\r - [ ] Uma rota que atualiza todos os dados de cadastro de um usuário e se não for encontrado cria um novo na lista\r - [ ] Uma rota que atualiza apenas o endereço do usuário\r - [ ] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "author": "liliatatyany",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

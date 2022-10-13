@@ -1,11 +1,12 @@
 {
-  "name": "exercicio-para-sala",
   "version": "1.0.0",
+  "description": "- [ ] criaremos uma rota utilizando o método PUT que atualiza todos os dados da lista de tarefas e caso não encontre, cria o item.\r - [ ] vamos atualizar um registro na lista de tarefas utilizando o método PATCH\r - [ ] apagaremos uma tarefa da lista utilizando o método DELETE. \r ---",
+  "name": "exercicio-para-sala",
   "description": "## Nome do Exercicio",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
   },
+  "author": "liliatatyany",
   "author": "Manuelly Suzik",
   "license": "ISC",
   "dependencies": {
