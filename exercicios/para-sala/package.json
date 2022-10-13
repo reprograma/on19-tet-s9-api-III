@@ -1,13 +1,14 @@
 {
   "name": "exercicio-para-sala",
   "version": "1.0.0",
-  "description": "## Nome do Exercicio",
+  "description": "sala",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "Manuelly Suzik",
-  "license": "ISC",
+  "author": "Tayane",
+  "license": "MIT",
+
   "dependencies": {
     "express": "^4.18.1"
   },
