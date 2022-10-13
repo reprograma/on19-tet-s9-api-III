@@ -1,13 +1,22 @@
 {
   "name": "exercicio-para-sala",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "Utilizando novos métodos na criação de uma API",
+=======
+  "description": "## Nome do Exercicio",
+>>>>>>> 52783825dbb50ec9e79d4642330215fd8c653673
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
+<<<<<<< HEAD
   "author": "Mellyssa Stephanny",
   "license": "MIT",
+=======
+  "author": "Manuelly Suzik",
+  "license": "ISC",
+>>>>>>> 52783825dbb50ec9e79d4642330215fd8c653673
   "dependencies": {
     "express": "^4.18.1"
   },
