@@ -9,26 +9,26 @@ app.use(express.json())
 // [x] Rota que atualiza todos os dados de cadastro 
 // de um usuário e se não for encontrado cria um novo na lista
 app.put("/usuarios/:id", (req, res) => {
-const idUsuario = req.params.id
-const idAtualizado = req.body
+  const idUsuario = req.params.id
+  const idAtualizado = req.body
 
-const usuario = listaDeUsuarios.find(usuario => usuario.id == idUsuario)
+  const usuario = listaDeUsuarios.find(usuario => usuario.id == idUsuario)
 
-if(usuario) {
-  const usuarioAtualizado = {
-    ...usuario,
-    ...idAtualizado
+  if(usuario) {
+    const usuarioAtualizado = {
+      ...usuario,
+      ...idAtualizado
 }
 for(let usuario of listaDeUsuarios){ // percorre objetos iterativos incluindo Array 
   if(usuario.id == idUsuario){
     listaDeUsuarios[usuario] = usuarioAtualizado
   }
 }
-return res.status(200).json(usuarioAtualizado)
+  return res.status(200).json(usuarioAtualizado)
 }
 
-listaDeUsuarios.push(idAtualizado)
-return res.status(201).json(idAtualizado) 
+  listaDeUsuarios.push(idAtualizado)
+    return res.status(201).json(idAtualizado) 
 })
 
 
