@@ -11,11 +11,11 @@ app.put("/usuario/:id",(req, res)=>{
     const IDUsuario = req.params.id
     const cadastroAtualizado = req.body
 
-    const temCadastro = listaDeUsuarios.find(tarefa => tarefa.id == IDUsuario)
+    const temCadastro = listaDeUsuarios.find(usuario => usuario.id == IDUsuario)
     
     if(temCadastro){
-        listaDeUsuarios.map((tarefa, index)=>{
-            if(tarefa.id == IDUsuario){
+        listaDeUsuarios.map((usuario, index)=>{
+            if(usuario.id == IDUsuario){
                 return listaDeUsuarios[index] = cadastroAtualizado
             }
         })
@@ -28,72 +28,42 @@ app.put("/usuario/:id",(req, res)=>{
     
 })
 
-/*[ ] 2 Uma rota que atualiza apenas o endereço do usuário.*/
-/*
-/app.patch("/usuario/:id",(req, res)=>{
-    const IDUsuario = req.params.id
+/*[x] 2 Uma rota que atualiza apenas o endereço do usuário.*/
+
+app.patch("/usuario/:id",(req, res)=>{
+    const IdUsuario = req.params.id
     const novosCampos = req.body
 
-    const existeTarefa = listaDeUsuarios.find(tarefa => tarefa.id == IDUsuario)
+    const existeUsuario = listaDeUsuarios.find(usuario_atual => usuario_atual.id == IdUsuario)
 
-    if(existeTarefa) {
-        const tarefaAtualizada = {
-            ...existeTarefa,
+    if(existeUsuario) {
+        const usuarioAtualizado = {
+            ...existeUsuario,
             ...novosCampos
         }
         // Garante que a lista de tarefas vai ser atualizada com o novo registro
-        listaDeUsuarios.map((tarefa, index)=>{
-            if(tarefa.id == IDUsuario){
-                return listaDeUsuarios[index] = tarefaAtualizada
+        listaDeUsuarios.map((usuario_atual, index)=>{
+            if(usuario_atual.id == IdUsuario){
+                return listaDeUsuarios[index] = usuarioAtualizado
             }
         })
 
-        return res.status(200).json(tarefaAtualizada)
+        return res.status(200).json(usuarioAtualizado)
     }
     return res.status(404).json({message:"tarefa não foi encontrada"})
 })
-*/
 
-
-app.patch("/usuario/:id",(req, res)=>{
-    const idRequest = req.params
-    const bodyRequest = req.body
-
-    const foundUser = listaDeUsuarios.find(user => user.id == idRequest)
-
-    if(foundUser == undefined){
-        res.status(404).send({message: 'Usuário não encontrado'})
-    }
-
-    bodyRequest.id == idRequest
-
-    Object.keys(foundUser).forEach((chave)=>{
-        if(bodyRequest[chave] == undefined){
-            foundUser[chave] = foundUser[chave]
-        }else{
-            foundUser[chave] = bodyRequest[chave]
-        }
-    })
-
-    res.status(200).send([{menssage: "Atualizado com sucesso", foundUser}])
-})
-
-
-
-/*[ ] 3 Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.*/
+/*[x] 3 Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.*/
 app.delete("/usuario/:id",(req, res)=>{
-    const IDUsuario = req.params.id
+    const idRequest = req.params.id
 
-    const existeTarefa = listaDeUsuarios.find((tarefa) => tarefa.id == IDUsuario)
-    //False = 0, null , [] , {} , undefined , false
-    //True = {...}, 1 , True
-    if(existeTarefa){
-        listaDeUsuarios.map((tarefa, index)=>{
-            if(tarefa.id == IDUsuario){
+    const existeUsuario = listaDeUsuarios.find((usuario) => usuario.id == idRequest)
+    if(existeUsuario){
+        listaDeUsuarios.map((usuario, index)=>{
+            if(tarefa.id == idRequest){
                 return listaDeUsuarios.splice(index,1)
             }
         })
-
         return res.status(200).json(listaDeUsuarios)
     }
 
@@ -103,8 +73,6 @@ app.delete("/usuario/:id",(req, res)=>{
 })
 
 
-/*Usar corretamente os retornos com os respectivos status codes!*/
-
-app. listen(port,()=>{
+app.listen(port,()=>{
     console.log(`Api está rodando na porta ${port}`)
 })
