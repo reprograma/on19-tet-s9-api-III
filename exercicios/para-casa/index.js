@@ -19,10 +19,10 @@ app.put('/usuarios/:id', (req, res) => {
         return (listaDeUsuarios[index] = usuarioAtualizado)
       }
     })
-    return res.status(200).json(usuarioAtualizado)
+    return res.status(200).json({message: "O usuário foi atualizado com sucesso!"})
   }
   listaDeUsuarios.push(usuarioAtualizado)
-  return res.status(201).json(listaDeUsuarios)
+  return res.status(201).json({message: "O usuário não existe e foi criado com sucesso!"})
 })
 
 // [X] TODO: Uma rota que atualiza **APENAS** o endereço do usuário -- DONE (Método PATCH)
