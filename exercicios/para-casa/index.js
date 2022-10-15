@@ -57,11 +57,14 @@ app.delete("/usuarios/:id",(req, res)=>{
             }
         })
 
-        return res.status(200).json(ListaDeUsuarios)
+        return res.status(200).json({
+            message:"Usuário apagado com sucesso",
+            usuario: existeUsuario
+        })
     }
 
     return res.status(404).json({
-        message:"Usuário não existente"
+        message:`Não foi possível apagar o usuário com ID ${idusario} não existe´
     })
 })
 
