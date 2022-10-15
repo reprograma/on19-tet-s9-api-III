@@ -41,7 +41,7 @@ app.patch("/usuarios/:id",(req, res)=>{
 
         return res.status(200).json(usuarioAtualizado)
     }
-    return res.status(404).json({message:"tarefa não foi encontrada"})
+    return res.status(404).json({message:"usuário não foi encontrado"})
 })
 app.delete("/usuarios/:id",(req, res)=>{
     const IDusuario = req.params.id
