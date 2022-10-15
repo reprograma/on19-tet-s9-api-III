@@ -44,7 +44,7 @@ app.patch('/usuarios/:id', (req, res) => {
         return (listaDeUsuarios[index] = novoEndereco)
       }
     })
-    return res.status(200).json(novoEndereco)
+    return res.status(200).json({message: "O usuário foi atualizado com sucesso!"})
   }
   return res.status(404).json({
     message:
