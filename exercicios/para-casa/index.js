@@ -64,7 +64,7 @@ app.delete('/usuarios/:id', (req, res) => {
         return listaDeUsuarios.splice(index, 1)
       }
     })
-    return res.status(200).json(listaDeUsuarios)
+    return res.status(200).json({message: "O usuário foi apagado com sucesso!"})
   }
   return res.status(404).json({
     message: "O usuário não foi encontrado. Por favor, verifique e digite um ID válido!"
