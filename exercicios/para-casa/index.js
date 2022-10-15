@@ -40,7 +40,7 @@ app.patch("/usuarios/:id",(req, res)=>{
                 return ListaDeUsuarios[index] = newEndereco
             }
         })
-        return res.status(200).json(newEndereco)
+        return res.status(200).json({message:" usuario atualizado com sucesso "})
     }
     return res.status(404).json({message:"Esse usuário não foi encontrado"})
 })
