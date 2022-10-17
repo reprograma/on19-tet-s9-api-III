@@ -28,22 +28,36 @@ app.put("/usuarios/:id", (req, res) => {
   }
 
   listaDeUsuarios.push(idAtualizado);
+  console.log(idAtualizado)
   return res.status(201).json(idAtualizado);
 });
 
 
 // [x] Rota que atualiza apenas o endereço do usuário.
 
-app.patch("/usuarios/:id", (req, res) => {
-  const idUsuario = req.params.id;
-  const novoEndereco = req.body.address; // acessa apenas a propriedade endereço do usuário, garantindo que somente ela será atualizada.
+app.patch("/usuarios/:id",(req, res)=>{
+  const IDUsuario = req.params.id
+  const novoEndereco = req.body
 
-  const usuario = listaDeUsuarios.find((usuario) => usuario.id == idUsuario);
+  const existeUsuario = listaDeUsuarios.find(usuario => usuario.id == IDUsuario)
 
-  if (usuario) {
-    usuario.address = novoEndereco;
+  if(existeUsuario){
+      const usuarioAtualizado = {
+          ...existeUsuario,
+          ...novoEndereco
+      }
 
-    return res.status(200).json(usuario);
+      listaDeUsuarios.map((usuario, index)=>{
+          if(usuario.id == IDUsuario){
+              listaDeUsuarios[index] = usuarioAtualizado
+          }
+      })
+      console.log(listaDeUsuarios);
+      return res.status(200).json({
+          message:"Usuário atualizado com sucesso!",
+          usuario:usuarioAtualizado
+        }
+        )
   }
   return res.status(404).json({ message: " Usuário não localizado. " });
 });
