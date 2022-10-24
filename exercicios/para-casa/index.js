@@ -30,6 +30,11 @@ app.put("/usuarios/:id", (req, res) => {
     const user = listaUsuarios.find(usuario => usuario.id == IDusuario)
 
     if(user){
+        listaUsuarios.map((usuario,index)=>{
+            if(usuario.id == IDusuario){
+                return listaUsuarios[index] = novoUser
+            }      
+        })
         return res.status(200).json(novoUser)
     }
 
@@ -56,7 +61,7 @@ app.patch("/usuarios/:id",(req, res)=>{
        
         return res.status(200).json(usuarioAtualizado)
     }
-    return res.status(404).json({message:"tarefa não foi encontrada"})
+    return res.status(404).json({message:"O Usuário não foi encontrada"})
 })
 
 //- [ ] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários.
