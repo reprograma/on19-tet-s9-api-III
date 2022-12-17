@@ -1,83 +1,62 @@
-const express = require("express")
+const express = require('express')
 const app = express()
-const port = 3000
-
-const listaDeUsuarios = require("./model/usuarios.json")
-
+const port = 3333
+const usuarios =require('./model/usuarios.json')
 app.use(express.json())
 
-// - [X] Uma rota que atualiza todos os dados de cadastro de um usuário e se não for encontrado cria um novo na lista - DONE
 app.put("/usuarios/:id",(req, res)=>{
-    const IDUsuario = req.params.id
-    const usuarioAtualizado = req.body
-    
-    const existeUsuario = listaDeUsuarios.find(usuario => usuario.id == IDUsuario)
-    if(existeUsuario){
-        listaDeUsuarios.map((usuario, index)=>{
-            if(usuario.id == IDUsuario){
-                return listaDeUsuarios[index] = usuarioAtualizado
-            }
-        })
+    const IDusuario = req.params.id
+    const userUpdated = req.body
+    const findUser = usuarios.find(usuario => usuario.id == IDusuario)
 
-        // return res.status(200).json({
-        //     message: "Usuário foi atualizado com sucesso!",
-        //     user: usuarioAtualizado
-        // })
-
-        return res.status(200).json({message: "Usuário atualizado com sucesso"})
-    }
-    listaDeUsuarios.push(usuarioAtualizado)
-    return res.status(201).json({ message:"O usuário não existe e foi criado com sucesso!"})
-})
-// - [X] Uma rota que atualiza apenas o endereço do usuário - DONE
-app.patch("/usuarios/:id",(req, res)=>{
-    const IDUsuario = req.params.id
-    const novoEndereco = req.body
-
-    const existeUsuario = listaDeUsuarios.find(usuario => usuario.id == IDUsuario)
-
-    if(existeUsuario){
-        const usuarioAtualizado = {
-            ...existeUsuario,
-            ...novoEndereco
+    const newUser = usuarios.map((users, index)=>{
+        if(usuarios.id == IDusuario){
+            return usuarios[index] = userUpdated
+            return res.status(200).json({message: "Usuário atualizado com sucesso"})
         }
+        listaDeUsuarios.push(usuarioAtualizado)
+        return res.status(201).json({ message:"O usuário não existe e foi criado com sucesso!"})
+    })
 
-        listaDeUsuarios.map((usuario, index)=>{
-            if(usuario.id == IDUsuario){
-                listaDeUsuarios[index] = usuarioAtualizado
-            }
-        })
-        return res.status(200).json({
-            message:"Usuário atualizado com sucesso!",
-            usuario:usuarioAtualizado
-        }
-        )
-    }
-    return res.status(404).json({message:`Usuário com o ID : ${IDUsuario} não existe`})
-})
-// - [X] Uma rota que ao receber um ID de usuário , consegue deletar ele da lista de usuários. - DONE
-app.delete("/usuarios/:id",(req, res)=>{
-    const IDUsuario = req.params.id
-    
-    const existeUsuario = listaDeUsuarios.find(usuario => usuario.id == IDUsuario)
-
-    if(existeUsuario){
-        listaDeUsuarios.map((usuario, index)=>{
-            if(usuario.id == IDUsuario){
-                listaDeUsuarios.splice(index,1)
-            }
-        })
-
-        return res.status(200).json({
-            message:"Usuário apagado com sucesso",
-            usuario: existeUsuario
-        }
-        )
-    }
-
-    return res.status(404).json({ message:`Não foi possível apagar o usuário com ID ${IDUsuario} pois não foi encontrado`})
 })
 
-// - [X] Usar corretamente os retornos com os respectivos status codes! - DONE
+app.delete ("/usuarios/delete", (req, res) => {
+    const {id} = req.params
+    const findUser = usuarios.find(id)
+    if (findUser == null){
+        res.status(404).json({message: "Não consegui encontrar o usuário, por favor cheque o id inserido."})
+    };
+    findCompany.splice(findUser);
+    res.status(200).json({message: `A empresa ${findUser.name} foi deletada com sucesso.`})    
+});
 
-app.listen(port, ()=>{ console.log(`A Api está rodando na porta ${3000}`)})
+app.patch ('/update', (req, res) => {
+    try {
+    const {id} = req.params;
+    const {
+        address: {
+            zipcode,
+            street,
+            city
+          }
+    } = req.body;
+    const findUser = usuarios.find(id);
+    const newAdress = {address: {
+        zipcode,
+        street,
+        city
+    }}
+    if (findUser == null) {
+        res.status(404).json({message: "Não consegui encontrar o usuário que você estava procurando, por favor cheque o id inserido novamente."})
+    };
+    const updatedAdress = newAdress.save();
+    res.status(200).json({message: "Seu usuário foi atualizada com sucesso. <3"}) 
+} catch (error) {
+    res.status(500).json({message: error.message})
+} 
+});
+
+
+app.listen(() => {
+    console.log(`API está todando na porta ${port}`)
+})
