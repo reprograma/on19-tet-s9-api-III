@@ -1,15 +1,15 @@
 {
-  "name": "exercicio-para-sala",
+  "name": "exemplo-para-sala",
   "version": "1.0.0",
-  "description": "## Nome do Exercicio",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
   },
-  "author": "Manuelly Suzik",
+  "author": "judy",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
